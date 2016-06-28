@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04DC2DA84AD443660E05600BD6E66383 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E87EF6D3DCC0C3A949D22AC4B1E807B /* ReplaceMe.swift */; };
 		11C22C7B844DF31A5EBDC9AC132C5E94 /* UIImage+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E22F9517F21D3A0251F88FCAB281E /* UIImage+Compare.m */; };
 		130F048002A62769FAFCC66F2C79391A /* FBSnapshotTestController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1374B79237CAC07693E99442FBED1F15 /* FBSnapshotTestController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2C87E1788C8FA06AE3481A2226E3AF2D /* UIApplication+StrictKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EECE81A9AEC1ED1057A9C3C88DBCEBE /* UIApplication+StrictKeyWindow.m */; };
@@ -15,6 +14,9 @@
 		34A1C7E576C58A9D3F3101448308BF3E /* UIImage+Snapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B161931541BFE46DFEA2092EDDDA815 /* UIImage+Snapshot.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		3A9C8DF15C6C70BF81ED8D018AB130B0 /* FOToast-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9075B6903975542DE38CEE78471E10DC /* FOToast-dummy.m */; };
 		497AA8816FC08215EF4C2431E1986992 /* FBSnapshotTestCase-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C18C0EB1FED5EB5CE3B0E768AC510F /* FBSnapshotTestCase-dummy.m */; };
+		4C69A25C1D23052D003227D1 /* FOToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C69A2561D2303F9003227D1 /* FOToastManager.swift */; };
+		4C69A25D1D23052D003227D1 /* FOToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C69A2571D2303F9003227D1 /* FOToast.swift */; };
+		4C69A25E1D23052D003227D1 /* FOCompletionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C69A2581D2303F9003227D1 /* FOCompletionOperation.swift */; };
 		606257E354CC904FF5BCB1FF7CE2D566 /* Pods-FOToast_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 345A086C7D8B450257645858977E392B /* Pods-FOToast_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61EBC5CF0D5E065C88028B49C6B8D3B3 /* UIImage+Diff.h in Headers */ = {isa = PBXBuildFile; fileRef = 85E250EF19C5B5671AEC10BEB508D087 /* UIImage+Diff.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		68B245DB47CA60F8F9ADCA1E8CCDC324 /* UIApplication+StrictKeyWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = B9109B8B333B5A1A3E92EFC09EDC10AC /* UIApplication+StrictKeyWindow.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -75,6 +77,9 @@
 		3B5E22F9517F21D3A0251F88FCAB281E /* UIImage+Compare.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Compare.m"; path = "FBSnapshotTestCase/Categories/UIImage+Compare.m"; sourceTree = "<group>"; };
 		3DBFBDCC891B770A2AC9EF0FB164B751 /* UIImage+Snapshot.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Snapshot.m"; path = "FBSnapshotTestCase/Categories/UIImage+Snapshot.m"; sourceTree = "<group>"; };
 		432938111B6FF0189EFFEDF2F845B308 /* UIImage+Compare.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Compare.h"; path = "FBSnapshotTestCase/Categories/UIImage+Compare.h"; sourceTree = "<group>"; };
+		4C69A2561D2303F9003227D1 /* FOToastManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FOToastManager.swift; sourceTree = "<group>"; };
+		4C69A2571D2303F9003227D1 /* FOToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FOToast.swift; sourceTree = "<group>"; };
+		4C69A2581D2303F9003227D1 /* FOCompletionOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FOCompletionOperation.swift; sourceTree = "<group>"; };
 		52C18C0EB1FED5EB5CE3B0E768AC510F /* FBSnapshotTestCase-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FBSnapshotTestCase-dummy.m"; sourceTree = "<group>"; };
 		54D562FAB82F63ECDF6A4C16A096B388 /* Pods-FOToast_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FOToast_Example-resources.sh"; sourceTree = "<group>"; };
 		570D2927EC4D51AE54F0AE79B8D94F90 /* Pods-FOToast_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FOToast_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -82,7 +87,6 @@
 		6091B5E3761A5E1777A5676901C2E3ED /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6937F10232DF93E510E6FC9B58B447D3 /* Pods-FOToast_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FOToast_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		6E66B4218824CF8160D93713DDBEEA82 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6E87EF6D3DCC0C3A949D22AC4B1E807B /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReplaceMe.swift; sourceTree = "<group>"; };
 		7209979DBDFE31C67CA1DB9CD2F0083F /* FBSnapshotTestCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FBSnapshotTestCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73D037B3C804B9E1BB70538E342E5104 /* FBSnapshotTestCase-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FBSnapshotTestCase-umbrella.h"; sourceTree = "<group>"; };
 		7E3DB4D092B985E76E227F7F313C6981 /* FBSnapshotTestCasePlatform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestCasePlatform.h; path = FBSnapshotTestCase/FBSnapshotTestCasePlatform.h; sourceTree = "<group>"; };
@@ -238,7 +242,9 @@
 		393065A97CABBE6111A0C31D96D0FFAE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6E87EF6D3DCC0C3A949D22AC4B1E807B /* ReplaceMe.swift */,
+				4C69A2561D2303F9003227D1 /* FOToastManager.swift */,
+				4C69A2571D2303F9003227D1 /* FOToast.swift */,
+				4C69A2581D2303F9003227D1 /* FOCompletionOperation.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -501,8 +507,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C69A25D1D23052D003227D1 /* FOToast.swift in Sources */,
+				4C69A25C1D23052D003227D1 /* FOToastManager.swift in Sources */,
+				4C69A25E1D23052D003227D1 /* FOCompletionOperation.swift in Sources */,
 				3A9C8DF15C6C70BF81ED8D018AB130B0 /* FOToast-dummy.m in Sources */,
-				04DC2DA84AD443660E05600BD6E66383 /* ReplaceMe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

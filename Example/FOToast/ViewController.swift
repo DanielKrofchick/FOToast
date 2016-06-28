@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import FOToast
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        FOToastManager.sharedInstance.add(FOPlainToast(color: UIColor.redColor()))
+        FOToastManager.sharedInstance.add(FOPlainToast(color: UIColor.blueColor()))
     }
 
     override func didReceiveMemoryWarning() {
