@@ -1,0 +1,6 @@
+framework module FOToast {
+  umbrella header "FOToast-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module Pods_FOToast_Tests {
+  umbrella header "Pods-FOToast_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
