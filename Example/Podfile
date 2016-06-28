@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'FOToast_Example' do
+  pod 'FOToast', :path => '../'
+
+  target 'FOToast_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
