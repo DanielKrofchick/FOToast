@@ -34,17 +34,26 @@ public extension FOToast {
         return startFrame(superview)
     }
     
+    // Updates frame on rotation
+    func update(superview: UIView) -> CGRect {
+        let size = view.sizeThatFits(superview.frame.size)
+        
+        return CGRect(x: (superview.frame.width - size.width) / 2.0, y: view.frame.origin.y, width: size.width, height: view.frame.height)
+    }
+    
 }
 
 public struct FOPlainToast: FOToast {
     
     public var view = UIView()
-    public var duration = 1.0
-    public var animationTime = 1.0
+    public var duration = 3.0
+    public var animationTime = 3.0
     
     public init(color: UIColor) {
         view = FOPlainView()
         view.backgroundColor = color
+        view.layer.borderColor = UIColor.yellowColor().CGColor
+        view.layer.borderWidth = 2
     }
     
 }
