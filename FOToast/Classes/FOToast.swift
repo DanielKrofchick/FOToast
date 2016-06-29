@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol FOToast {
+@objc public protocol FOToast {
     
     var view: UIView {get set}
     var duration: NSTimeInterval {get set}
@@ -43,7 +43,7 @@ public extension FOToast {
     
 }
 
-public struct FOPlainToast: FOToast {
+public class FOPlainToast: NSObject, FOToast {
     
     public var view = UIView()
     public var duration = 3.0
