@@ -42,13 +42,14 @@ public class FOToastManager: NSObject {
     }
     
     func addBackgroundTap(toast: FOToast) {
-        if let backgroundTap = toast.backgroundTap {
-            toast.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(doBackgroundtap)))
-        }
+        toast.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(doBackgroundtap)))
     }
     
     func doBackgroundtap() {
-        currentToast?.backgroundTap?()
+        if let currentToast = currentToast {
+            currentToast.backgroundTap?()
+            hide(currentToast)
+        }
     }
     
     func show(toast: FOToast, animated: Bool = true, completion: ((Bool)->())? = nil) {
