@@ -28,15 +28,27 @@ public class FOToastManager: NSObject {
     }
     
     public func add(toast: FOToast) {
-        queue.addOperation(FOCompletionOperation(work: { operation in
-            self.show(toast, completion: { finished in
+        queue.addOperation(FOCompletionOperation(work: {
+            [weak self] operation in
+            self?.addBackgroundTap(toast)
+            self?.show(toast, completion: { finished in
                 delay(toast.duration, closure: { 
-                    self.hide(toast, completion: { finished in
+                    self?.hide(toast, completion: { finished in
                         operation.finish()
                     })
                 })
             })
         }, queue: dispatch_get_main_queue()))
+    }
+    
+    func addBackgroundTap(toast: FOToast) {
+        if let backgroundTap = toast.backgroundTap {
+            toast.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(doBackgroundtap)))
+        }
+    }
+    
+    func doBackgroundtap() {
+        currentToast?.backgroundTap?()
     }
     
     func show(toast: FOToast, animated: Bool = true, completion: ((Bool)->())? = nil) {

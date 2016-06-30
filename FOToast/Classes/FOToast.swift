@@ -13,6 +13,7 @@ import Foundation
     var view: UIView {get set}
     var duration: NSTimeInterval {get set}
     var animationTime: NSTimeInterval {get set}
+    var backgroundTap: (()->())? {get set}
     
 }
 
@@ -48,6 +49,7 @@ public class FOPlainToast: NSObject, FOToast {
     public var view = UIView()
     public var duration = 3.0
     public var animationTime = 3.0
+    public var backgroundTap: (() -> ())? = nil
     
     public init(color: UIColor) {
         view = FOPlainView()
