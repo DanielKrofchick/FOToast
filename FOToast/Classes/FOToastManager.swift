@@ -28,6 +28,8 @@ public class FOToastManager: NSObject {
     }
     
     public func add(toast: FOToast) {
+        toast.toastManager = self
+
         queue.addOperation(FOCompletionOperation(work: {
             [weak self] operation in
             self?.addBackgroundTap(toast)
