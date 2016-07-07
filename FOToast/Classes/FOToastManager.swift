@@ -66,7 +66,7 @@ public class FOToastManager: NSObject {
         }
     }
     
-    func hide(toast: FOToast, animated: Bool = true, completion: ((Bool)->())? = nil) {
+    public func hide(toast: FOToast, animated: Bool = true, completion: ((Bool)->())? = nil) {
         if let view = view() {
             UIView.animateWithDuration(animated ? toast.animationTime : 0, animations: {
                 toast.view.frame = toast.endFrame(view)
