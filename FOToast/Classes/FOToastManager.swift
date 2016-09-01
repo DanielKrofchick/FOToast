@@ -28,6 +28,14 @@ public class FOToastManager: NSObject {
     }
     
     public func add(toast: FOToast) {
+        if !toast.hasContent() {
+            return
+        } else if let identifier = toast.identifier() {
+            if identifier == currentToast?.identifier() {
+                return
+            }
+        }
+        
         toast.toastManager = self
 
         queue.addOperation(FOCompletionOperation(work: {

@@ -20,16 +20,44 @@ import Foundation
 
 public extension FOToast {
     
+    // Toast not shown if matches current toast
+    func identifier() -> String? {
+        return nil
+    }
+    
+    // If false, toast is not shown
+    func hasContent() -> Bool {
+        return true
+    }
+    
+    func edge() -> UIRectEdge {
+        return UIRectEdge.Bottom
+    }
+    
     func startFrame(superview: UIView) -> CGRect {
         let size = view.sizeThatFits(superview.frame.size)
+        var y = CGFloat(0)
         
-        return CGRect(x: (superview.frame.width - size.width) / 2.0, y: -size.height, width: size.width, height: size.height)
+        if edge() == .Top {
+            y = -size.height
+        } else if edge() == .Bottom {
+            y = superview.frame.height
+        }
+        
+        return CGRect(x: (superview.frame.width - size.width) / 2.0, y: y, width: size.width, height: size.height)
     }
     
     func middleFrame(superview: UIView) -> CGRect {
         let size = view.sizeThatFits(superview.frame.size)
+        var y = CGFloat(0)
         
-        return CGRect(x: (superview.frame.width - size.width) / 2.0, y: 0, width: size.width, height: size.height)
+        if edge() == .Top {
+            y = 0
+        } else if edge() == .Bottom {
+            y = superview.frame.height - size.height
+        }
+        
+        return CGRect(x: (superview.frame.width - size.width) / 2.0, y: y, width: size.width, height: size.height)
     }
     
     func endFrame(superview: UIView) -> CGRect {
