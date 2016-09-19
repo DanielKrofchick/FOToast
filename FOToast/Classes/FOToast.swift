@@ -15,6 +15,8 @@ import Foundation
     var animationTime: NSTimeInterval {get set}
     var backgroundTap: (()->())? {get set}
     weak var toastManager: FOToastManager? {get set}
+    func identifier() -> String?
+    func hasContent() -> Bool
     
 }
 
@@ -86,6 +88,14 @@ public class FOPlainToast: NSObject, FOToast {
         view.backgroundColor = color
         view.layer.borderColor = UIColor.yellowColor().CGColor
         view.layer.borderWidth = 2
+    }
+    
+    public func identifier() -> String? {
+        return nil
+    }
+    
+    public func hasContent() -> Bool {
+        return true
     }
     
 }
