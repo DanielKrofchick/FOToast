@@ -1,22 +1,21 @@
 {
   "name": "FOToast",
   "version": "0.1.0",
-  "summary": "A short description of FOToast.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/FOToast",
+  "summary": "Toast used by Figure 1",
+  "homepage": "https://github.com/DanielKrofchick/FOToast.git",
   "license": {
     "type": "MIT",
-    "file": "LICENSE"
+    "text": ""
   },
   "authors": {
     "Daniel Krofchick": "krofchick@gmail.com"
   },
-  "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/FOToast.git",
-    "tag": "0.1.0"
-  },
   "platforms": {
     "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/DanielKrofchick/FOToast.git",
+    "tag": "0.1.0"
   },
   "source_files": "FOToast/Classes/**/*"
 }

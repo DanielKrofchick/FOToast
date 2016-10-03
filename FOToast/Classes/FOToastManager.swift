@@ -8,26 +8,26 @@
 
 import Foundation
 
-public class FOToastManager: NSObject {
+open class FOToastManager: NSObject {
     
-    public static var sharedInstance = FOToastManager()
+    open static var sharedInstance = FOToastManager()
     
-    public var window: UIWindow? = nil
-    public var queue = NSOperationQueue()
+    open var window: UIWindow? = nil
+    open var queue = OperationQueue()
     var currentToast: FOToast? = nil
     
     override init() {
         super.init()
         
         queue.maxConcurrentOperationCount = 1
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(didChangeStatusBarFrame), name: UIApplicationDidChangeStatusBarFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didChangeStatusBarFrame), name: NSNotification.Name.UIApplicationDidChangeStatusBarFrame, object: nil)
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    public func add(toast: FOToast) {
+    open func add(_ toast: FOToast) {
         if !toast.hasContent() {
             return
         } else if let identifier = toast.identifier() {
@@ -48,10 +48,10 @@ public class FOToastManager: NSObject {
                     })
                 })
             })
-        }, queue: dispatch_get_main_queue()))
+        }, queue: DispatchQueue.main))
     }
     
-    func addBackgroundTap(toast: FOToast) {
+    func addBackgroundTap(_ toast: FOToast) {
         toast.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(doBackgroundtap)))
     }
     
@@ -62,21 +62,21 @@ public class FOToastManager: NSObject {
         }
     }
     
-    func show(toast: FOToast, animated: Bool = true, completion: ((Bool)->())? = nil) {
+    func show(_ toast: FOToast, animated: Bool = true, completion: ((Bool)->())? = nil) {
         if let view = view() {
             currentToast = toast
             view.addSubview(toast.view)
             toast.view.frame = toast.startFrame(view)
             
-            UIView.animateWithDuration(animated ? toast.animationTime : 0, animations: {
+            UIView.animate(withDuration: animated ? toast.animationTime : 0, animations: {
                 toast.view.frame = toast.middleFrame(view)
             }, completion: completion)
         }
     }
     
-    public func hide(toast: FOToast, animated: Bool = true, completion: ((Bool)->())? = nil) {
+    open func hide(_ toast: FOToast, animated: Bool = true, completion: ((Bool)->())? = nil) {
         if let view = view() {
-            UIView.animateWithDuration(animated ? toast.animationTime : 0, animations: {
+            UIView.animate(withDuration: animated ? toast.animationTime : 0, animations: {
                 toast.view.frame = toast.endFrame(view)
             }, completion: {
                 finished in
@@ -89,12 +89,12 @@ public class FOToastManager: NSObject {
     
     func view() -> UIView? {
         if window == nil {
-            if let keyWindow = UIApplication.sharedApplication().keyWindow {
+            if let keyWindow = UIApplication.shared.keyWindow {
                 window = TouchForwardingWindow()
                 window?.frame = keyWindow.frame
-                window?.hidden = false
+                window?.isHidden = false
                 window?.windowLevel = UIWindowLevelNormal
-                window?.backgroundColor = UIColor.clearColor()
+                window?.backgroundColor = UIColor.clear
                 window?.rootViewController = UIViewController()
             }
         }
@@ -105,7 +105,7 @@ public class FOToastManager: NSObject {
     func didChangeStatusBarFrame() {
         if let
             currentToast = currentToast,
-            view = view()
+            let view = view()
         {
             currentToast.view.frame = currentToast.update(view)
         }
@@ -115,8 +115,8 @@ public class FOToastManager: NSObject {
 
 class TouchForwardingWindow: UIWindow {
     
-    override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
-        var hitView = super.hitTest(point, withEvent: event)
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        var hitView = super.hitTest(point, with: event)
         
         if hitView == rootViewController?.view {
             hitView = nil
@@ -127,11 +127,7 @@ class TouchForwardingWindow: UIWindow {
     
 }
 
-func delay(delay:Double, closure:()->()) {
-    dispatch_after(
-        dispatch_time(
-            DISPATCH_TIME_NOW,
-            Int64(delay * Double(NSEC_PER_SEC))
-        ),
-        dispatch_get_main_queue(), closure)
+func delay(_ delay:Double, closure:@escaping ()->()) {
+    DispatchQueue.main.asyncAfter(
+        deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
 }

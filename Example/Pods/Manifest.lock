@@ -1,13 +1,7 @@
 PODS:
-  - FBSnapshotTestCase (2.1.1):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.1)
-  - FBSnapshotTestCase/Core (2.1.1)
-  - FBSnapshotTestCase/SwiftSupport (2.1.1):
-    - FBSnapshotTestCase/Core
   - FOToast (0.1.0)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase
   - FOToast (from `../`)
 
 EXTERNAL SOURCES:
@@ -15,9 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FBSnapshotTestCase: 432afd8d059ccef7f207225894840a03fbcf7474
-  FOToast: c02a3ffa456b458110f42a1700e9773ab58fd1eb
+  FOToast: feefea2aa73072a10f825994ef917ac17f67f301
 
-PODFILE CHECKSUM: e1e2b805fc4efbbff3dffd4be997cd4d280a861a
+PODFILE CHECKSUM: 22e93259b89e8d05147a685ad46fbd3247ae891b
 
 COCOAPODS: 1.0.1
