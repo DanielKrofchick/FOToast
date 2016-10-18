@@ -17,6 +17,7 @@ import Foundation
     weak var toastManager: FOToastManager? {get set}
     func identifier() -> String?
     func hasContent() -> Bool
+    var edge: UIRectEdge {get set}
     
 }
 
@@ -32,17 +33,13 @@ public extension FOToast {
         return true
     }
     
-    func edge() -> UIRectEdge {
-        return UIRectEdge.Bottom
-    }
-    
     func startFrame(superview: UIView) -> CGRect {
         let size = view.sizeThatFits(superview.frame.size)
         var y = CGFloat(0)
         
-        if edge() == .Top {
+        if edge == .Top {
             y = -size.height
-        } else if edge() == .Bottom {
+        } else if edge == .Bottom {
             y = superview.frame.height
         }
         
@@ -53,9 +50,9 @@ public extension FOToast {
         let size = view.sizeThatFits(superview.frame.size)
         var y = CGFloat(0)
         
-        if edge() == .Top {
+        if edge == .Top {
             y = 0
-        } else if edge() == .Bottom {
+        } else if edge == .Bottom {
             y = superview.frame.height - size.height
         }
         
@@ -82,12 +79,14 @@ public class FOPlainToast: NSObject, FOToast {
     public var animationTime = 3.0
     public var backgroundTap: (() -> ())? = nil
     public var toastManager: FOToastManager? = nil
+    public var edge: UIRectEdge
     
     public init(color: UIColor) {
         view = FOPlainView()
         view.backgroundColor = color
         view.layer.borderColor = UIColor.yellowColor().CGColor
         view.layer.borderWidth = 2
+        edge = .Top
     }
     
     public func identifier() -> String? {
