@@ -11,8 +11,8 @@ import Foundation
 @objc public protocol FOToast {
     
     var view: UIView {get set}
-    var duration: NSTimeInterval {get set}
-    var animationTime: NSTimeInterval {get set}
+    var duration: TimeInterval {get set}
+    var animationTime: TimeInterval {get set}
     var backgroundTap: (()->())? {get set}
     weak var toastManager: FOToastManager? {get set}
     func identifier() -> String?
@@ -33,38 +33,38 @@ public extension FOToast {
         return true
     }
     
-    func startFrame(superview: UIView) -> CGRect {
+    func startFrame(_ superview: UIView) -> CGRect {
         let size = view.sizeThatFits(superview.frame.size)
         var y = CGFloat(0)
         
-        if edge == .Top {
+        if edge == .top {
             y = -size.height
-        } else if edge == .Bottom {
+        } else if edge == .bottom {
             y = superview.frame.height
         }
         
         return CGRect(x: (superview.frame.width - size.width) / 2.0, y: y, width: size.width, height: size.height)
     }
     
-    func middleFrame(superview: UIView) -> CGRect {
+    func middleFrame(_ superview: UIView) -> CGRect {
         let size = view.sizeThatFits(superview.frame.size)
         var y = CGFloat(0)
         
-        if edge == .Top {
+        if edge == .top {
             y = 0
-        } else if edge == .Bottom {
+        } else if edge == .bottom {
             y = superview.frame.height - size.height
         }
         
         return CGRect(x: (superview.frame.width - size.width) / 2.0, y: y, width: size.width, height: size.height)
     }
     
-    func endFrame(superview: UIView) -> CGRect {
+    func endFrame(_ superview: UIView) -> CGRect {
         return startFrame(superview)
     }
     
     // Updates frame on rotation
-    func update(superview: UIView) -> CGRect {
+    func update(_ superview: UIView) -> CGRect {
         let size = view.sizeThatFits(superview.frame.size)
         
         return CGRect(x: (superview.frame.width - size.width) / 2.0, y: view.frame.origin.y, width: size.width, height: view.frame.height)
@@ -72,40 +72,40 @@ public extension FOToast {
     
 }
 
-public class FOPlainToast: NSObject, FOToast {
+open class FOPlainToast: NSObject, FOToast {
     
-    public var view = UIView()
-    public var duration = 3.0
-    public var animationTime = 3.0
-    public var backgroundTap: (() -> ())? = nil
-    public var toastManager: FOToastManager? = nil
-    public var edge: UIRectEdge
+    open var view = UIView()
+    open var duration = 3.0
+    open var animationTime = 3.0
+    open var backgroundTap: (() -> ())? = nil
+    open var toastManager: FOToastManager? = nil
+    open var edge: UIRectEdge
     
     public init(color: UIColor) {
         view = FOPlainView()
         view.backgroundColor = color
-        view.layer.borderColor = UIColor.yellowColor().CGColor
+        view.layer.borderColor = UIColor.yellow.cgColor
         view.layer.borderWidth = 2
-        edge = .Top
+        edge = .top
     }
     
-    public func identifier() -> String? {
+    open func identifier() -> String? {
         return nil
     }
     
-    public func hasContent() -> Bool {
+    open func hasContent() -> Bool {
         return true
     }
     
 }
 
-public class FOPlainView: UIView {
+open class FOPlainView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
-    public override func sizeThatFits(size: CGSize) -> CGSize {
+    open override func sizeThatFits(_ size: CGSize) -> CGSize {
         return CGSize(width: size.width, height: 100)
     }
     
