@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "FOToast"
-s.version      = "0.1.0"
+s.version      = "0.2.0"
 s.summary      = "Toast used by Figure 1"
 s.homepage     = "https://github.com/DanielKrofchick/FOToast.git"
 s.license      = { :type => 'MIT', :text => <<-LICENSE
