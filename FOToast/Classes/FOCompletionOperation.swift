@@ -13,7 +13,7 @@ class FOCompletionOperation: Operation {
     fileprivate var queue: DispatchQueue?
     fileprivate var work: ((_ operation: FOCompletionOperation) -> Void)? = nil
     
-    convenience init(work: ((_ operation: FOCompletionOperation) -> Void)?, queue: DispatchQueue = DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default)) {
+    convenience init(work: ((_ operation: FOCompletionOperation) -> Void)?, queue: DispatchQueue = DispatchQueue.global(qos: .default)) {
         self.init(queue: queue, work: work)
     }
     
